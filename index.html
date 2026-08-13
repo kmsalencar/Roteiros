@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Setembro 2026 — Bucareste, Jônica, Praga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400;12..96,75..100,600;12..96,75..100,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#17222C;
+  --ink-soft:#5A6672;
+  --paper:#E9ECE6;
+  --card:#FDFDFB;
+  --line:#CDD3CB;
+  --ro:#6E2639;
+  --io:#0B6E75;
+  --cz:#9A6B21;
+  --warn:#B4472A;
+  --leg:var(--ro);
+  --rail:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Newsreader",Georgia,serif;
+  font-size:17px;
+  line-height:1.5;
+  padding-bottom:56px;
+  overflow-x:hidden;
+}
+.wrap{max-width:720px;margin:0 auto;padding:0 18px}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:40;
+  background:var(--paper);
+  border-bottom:1px solid var(--line);
+}
+.ribbon{height:4px;background:var(--leg);transition:background .35s ease}
+.masthead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:11px 18px 8px;max-width:720px;margin:0 auto}
+.masthead h1{
+  font-family:"Bricolage Grotesque",system-ui,sans-serif;
+  font-weight:800;font-size:16px;letter-spacing:-.02em;
+  font-variation-settings:"wdth" 85;
+}
+.masthead .legname{
+  font-family:"JetBrains Mono",monospace;font-size:10px;
+  text-transform:uppercase;letter-spacing:.14em;color:var(--leg);
+  white-space:nowrap;transition:color .35s ease;
+}
+nav{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+.chips{display:flex;gap:6px;padding:0 18px 11px;width:max-content;min-width:100%}
+.chip{
+  font-family:"JetBrains Mono",monospace;
+  background:transparent;border:1px solid var(--line);border-radius:2px;
+  color:var(--ink-soft);cursor:pointer;
+  padding:6px 9px 5px;text-align:center;line-height:1.15;
+  transition:background .18s,color .18s,border-color .18s;
+}
+.chip b{display:block;font-size:14px;font-weight:600}
+.chip span{display:block;font-size:9px;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.chip[data-leg="ro"]{border-bottom:2px solid var(--ro)}
+.chip[data-leg="io"]{border-bottom:2px solid var(--io)}
+.chip[data-leg="cz"]{border-bottom:2px solid var(--cz)}
+.chip.on{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.chip.on span{opacity:.65}
+.chip:focus-visible{outline:2px solid var(--leg);outline-offset:2px}
+
+/* ---------- day ---------- */
+.panel{display:none;padding-top:22px}
+.panel.on{display:block;animation:rise .3s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+
+.dayhead{margin-bottom:20px}
+.dayhead .date{
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--leg);margin-bottom:5px;
+}
+.dayhead h2{
+  font-family:"Bricolage Grotesque",system-ui,sans-serif;
+  font-weight:800;font-size:30px;line-height:1.06;letter-spacing:-.03em;
+  font-variation-settings:"wdth" 82;
+}
+.dayhead p{font-size:15px;color:var(--ink-soft);margin-top:7px;font-style:italic}
+
+/* ---------- rail ---------- */
+.rail{position:relative;padding-left:calc(var(--rail) + 14px)}
+.rail:before{
+  content:"";position:absolute;left:var(--rail);top:7px;bottom:14px;
+  width:1px;background:var(--line);
+}
+.ev{position:relative;padding:0 0 20px}
+.ev:before{
+  content:"";position:absolute;left:calc(-14px - var(--rail) + 11px);top:6px;
+  width:7px;height:7px;border-radius:50%;
+  background:var(--paper);border:1.5px solid var(--ink-soft);
+}
+.ev.ok:before{background:var(--leg);border-color:var(--leg)}
+.ev.warn:before{background:var(--warn);border-color:var(--warn)}
+.ev .t{
+  font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:600;
+  letter-spacing:.03em;color:var(--ink-soft);display:block;margin-bottom:2px;
+}
+.ev h3{
+  font-family:"Bricolage Grotesque",system-ui,sans-serif;
+  font-weight:600;font-size:17px;letter-spacing:-.01em;line-height:1.25;
+}
+.ev .where{font-size:14.5px;color:var(--ink-soft);margin-top:2px}
+.ev .note{font-size:14.5px;margin-top:6px}
+.ev .note.flag{color:var(--warn)}
+.badge{
+  display:inline-block;font-family:"JetBrains Mono",monospace;
+  font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+  padding:2px 5px;border-radius:2px;margin-left:6px;vertical-align:2px;
+  background:var(--leg);color:#fff;
+}
+.badge.open{background:transparent;color:var(--warn);border:1px solid var(--warn)}
+
+.aside{
+  background:var(--card);border-left:2px solid var(--leg);
+  padding:12px 14px;margin:2px 0 22px;font-size:14.5px;
+}
+.aside b{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:13px;display:block;margin-bottom:3px}
+
+/* ---------- info ---------- */
+.sec{margin-bottom:28px}
+.sec h3{
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-soft);
+  padding-bottom:6px;border-bottom:1px solid var(--line);margin-bottom:12px;
+}
+.row{padding:10px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row .k{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:15.5px}
+.row .v{font-size:14.5px;color:var(--ink-soft);margin-top:2px}
+.row .v a{color:var(--io)}
+.todo{padding-left:20px;font-size:15px}
+.todo li{margin-bottom:9px}
+.todo li::marker{color:var(--warn)}
+
+footer{padding:22px 0 8px;font-size:13px;color:var(--ink-soft);text-align:center;font-family:"JetBrains Mono",monospace;letter-spacing:.04em}
+
+/* ---------- bottom pager ---------- */
+.pager{
+  position:fixed;bottom:0;left:0;right:0;z-index:40;
+  display:flex;background:var(--card);border-top:1px solid var(--line);
+}
+.pager button{
+  flex:1;background:none;border:0;padding:15px 8px;cursor:pointer;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink);
+}
+.pager button:disabled{opacity:.28}
+.pager button:focus-visible{outline:2px solid var(--leg);outline-offset:-3px}
+.pager .mid{flex:0 0 auto;padding:15px 18px;border-left:1px solid var(--line);border-right:1px solid var(--line);font-weight:600}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="ribbon"></div>
+  <div class="masthead">
+    <h1>10 → 20 setembro 2026</h1>
+    <span class="legname" id="legname">Romênia</span>
+  </div>
+  <nav><div class="chips" id="chips"></div></nav>
+</header>
+
+<main class="wrap" id="panels"></main>
+
+<div class="pager">
+  <button id="prev">← Anterior</button>
+  <button class="mid" id="toInfo">Info</button>
+  <button id="next">Próximo →</button>
+</div>
+
+<script>
+const LEG = {ro:"Romênia", io:"Costa Jônica", cz:"Chéquia"};
+
+const days = [
+{d:"10",wd:"qui",leg:"ro",title:"Fortaleza → Paris",sub:"Noite no ar. A viagem começa.",items:[
+  {t:"19:55",h:"AF 415 · Fortaleza → Paris",w:"CDG · chegada 09h35 do dia 11",n:"Noite no ar. Vocês perdem 5 horas no fuso.",s:"ok"}
+]},
+
+{d:"11",wd:"sex",leg:"ro",title:"Bucareste",sub:"Só uma noite na cidade — e ela já tem hora marcada.",items:[
+  {t:"09:35",h:"Chegada em Paris",w:"Conexão"},
+  {t:"12:00",h:"AF 6634 · Paris → Bucareste",w:"Chegada 15h50 — Henri Coandă (OTP)"},
+  {t:"16:50",h:"Transfer ao centro",w:"≈40 min do OTP até a Old Town"},
+  {t:"17:00",h:"Check-in — The Marmorosch",w:"Strada Doamnei 2-6, Old Town",n:"Antigo Banco Marmorosch Blank, de 1915. O bar The Vault funciona dentro do cofre original. Check-in a partir das 15h, checkout até 12h.",s:"ok"},
+  {t:"17:45",h:"Passagem Villacrosse e Lipscani",w:"A 2 min do hotel",n:"Galeria envidraçada com bares, depois as ruelas da Old Town e a Igreja de São Nicolau."},
+  {t:"19:15",h:"Bulevardul Unirii a pé",w:"Eixo das fontes, de frente para o Palácio do Parlamento",n:"Pôr do sol por volta das 19h45 — dá para descer o bulevar direto até o rooftop."},
+  {t:"20:00",h:"Amethyst Sky Bar & Rooftop",b:"Confirmado",w:"Bulevardul Unirii 47C · 8 pessoas · Rooftop (Outdoor) · até 23h",n:"Este é o jantar da noite. O Papila saiu do roteiro — não cabia entre a chegada e as 20h.",s:"ok"}
+],aside:{t:"O que ficou de fora",b:"Palácio do Parlamento por dentro e Ateneu Romeno: as visitas guiadas encerram no fim da tarde e vocês só chegam ao hotel às 17h. Ficam para uma próxima."}},
+
+{d:"12",wd:"sáb",leg:"io",title:"Bucareste → Saranda",sub:"Avião, ferry e o primeiro pôr do sol albanês.",items:[
+  {t:"08:30",h:"Café da manhã e checkout"},
+  {t:"09:30",h:"Saída para o aeroporto"},
+  {t:"12:00",h:"FR 7564 · Bucareste → Corfu",w:"Pouso 13h35"},
+  {t:"15:00",h:"Porto de Corfu",w:"Do aeroporto ao porto são ~15 min",n:"Chegar com folga: há controle de passaporte na saída da Grécia."},
+  {t:"16:00",h:"Ferry Corfu → Saranda",w:"Último ferry útil do dia",n:"Se perderem este, o próximo só sai às 20h. A Albânia está 1h atrás da Grécia — o relógio volta uma hora na travessia.",flag:1,s:"warn"},
+  {t:"17:30",h:"Check-in — Buzë Boutique Hotel",w:"Rruga Butrinti, Lagja 1, Saranda · +355 67 716 7830",n:"Três noites, até a manhã do dia 15. Check-in a partir das 14h, checkout até 11h. Praia privativa e piscina de frente para o mar.",s:"ok"},
+  {t:"19:00",h:"Lost Seaside",b:"Sem reserva",w:"A pé do hotel",n:"Pôr do sol às 19h25 e jantar ali mesmo. Casa animada, com música — bom começo de viagem.",s:"warn"}
+]},
+
+{d:"13",wd:"dom",leg:"io",title:"Butrint e Ksamil",sub:"Ruínas de manhã, água turquesa o resto do dia.",items:[
+  {t:"09:45",h:"Saída de carro",w:"Saranda → Butrint, ~25 min"},
+  {t:"10:30",h:"Butrint",w:"Parque arqueológico, Patrimônio UNESCO",n:"Duas horas dão conta do circuito principal: teatro, batistério, castelo veneziano."},
+  {t:"13:00",h:"Principote & Tulum",b:"Reservar",w:"Ksamil",n:"Almoço no clube e a tarde inteira ali. Vale garantir as espreguiçadeiras para 8 com antecedência — em setembro ainda enche.",s:"warn"},
+  {t:"18:30",h:"Poda",w:"Ksamil",n:"Pôr do sol e noite. Fica a poucos minutos do Principote."}
+]},
+
+{d:"14",wd:"seg",leg:"io",title:"Gjirokastër",sub:"A cidade de pedra, subindo a serra.",items:[
+  {t:"10:00",h:"Saída em dois carros",w:"Saranda → Gjirokastër, ~1h20"},
+  {t:"11:20",h:"Gjirokastër",w:"Zekate House, castelo e bazar",n:"A Zekate é a casa-torre otomana mais impressionante da cidade; o castelo tem vista para todo o vale do Drino."},
+  {t:"13:30",h:"Almoço",b:"Decidir",w:"Furra ou Taverna Kuka",s:"warn"},
+  {t:"16:00",h:"Retorno a Saranda",w:"Chegada ~17h20, passar no hotel"},
+  {t:"19:00",h:"Asi Rooftop",b:"Sem reserva",w:"Drinks",s:"warn"},
+  {t:"21:00",h:"Mare Nostrum",b:"Reservar",w:"Jantar · 8 pessoas",s:"warn"}
+],aside:{t:"Alternativa para o fim de tarde",b:"Subir ao Castelo de Lëkurësi às 18h45 e ficar só no mirante para o pôr do sol das 19h20 — o restaurante de lá é o ponto fraco, a vista não. Nesse caso o Asi Rooftop sai do dia."}},
+
+{d:"15",wd:"ter",leg:"io",title:"Jale, barco e Dhermi",sub:"O dia do mar aberto.",items:[
+  {t:"08:30",h:"Café da manhã e checkout do Buzë",w:"Checkout até 11h"},
+  {t:"11:00",h:"Estrada Saranda → Jale",w:"~1h45 pela costa"},
+  {t:"13:00",h:"Almoço",b:"Decidir",w:"No próprio Folie Marine ou na Taverna Lefteri, em Himara",s:"warn"},
+  {t:"14:15",h:"Chegada ao Folie Marine Beach Hotel & Club",w:"Rruga Jali Superior A, praia de Jale",n:"O check-in oficial começa às 15h — se os quartos não estiverem prontos, deixem as malas e sigam direto para o barco. Checkout até 11h30.",flag:1,s:"warn"},
+  {t:"15:30",h:"Barco privado — All Himara Coastline",w:"Até 19h15",n:"Pirate's Cave, grutas e baías do Gjipe, Filikuri, túnel de submarinos e península de Porto Palermo. Pôr do sol no mar na volta. Custo dividido entre os quatro casais.",s:"ok"},
+  {t:"20:45",h:"Jantar em Dhermi",b:"Decidir",w:"Luciano ou Azul by Havana",s:"warn"},
+  {t:"22:30",h:"Depois",w:"360 Sunset Bar, Havana — ou ficar pelo hotel mesmo"}
+],aside:{t:"Confirmar com o operador",b:"O Gjipe fica a 2,6 km do Folie Marine e a Pirate's Cave a poucos minutos de barco da baía de Jale. Vale perguntar se o barco pode sair e voltar do próprio hotel em vez de Himara — economiza o deslocamento de ida e volta."}},
+
+{d:"16",wd:"qua",leg:"io",title:"Jale → Corfu",sub:"De volta à Grécia, agora para dormir no Liston.",items:[
+  {t:"08:30",h:"Café da manhã e checkout"},
+  {t:"10:00",h:"Jale → Saranda",w:"~1h45",n:"Devolução dos dois carros em Saranda antes do ferry."},
+  {t:"13:00",h:"Ferry Saranda → Corfu",b:"A confirmar",w:"Começo da tarde",n:"Horário e empresa ainda não fechados. O relógio adianta 1h ao chegar na Grécia.",flag:1,s:"warn"},
+  {t:"15:00",h:"Check-in — Arcadion Hotel",w:"Vlassopoulou 2 / Kapodistriou 44, Liston · +30 26610 37670",n:"Varandas dando para a Spianada e o Forte Velho. Check-in a partir das 15h, checkout até 11h. Tem bistrô no rooftop, se quiserem um drink antes do jantar.",s:"ok"},
+  {t:"17:00",h:"Old Town de Corfu",w:"Liston, Spianada, ruelas venezianas",n:"Se o ferry chegar cedo e sobrar tarde, a opção é o La Grotta Beach Bar e a praia Agios Spyridon (restaurante Vrachos) — fora da cidade, cerca de 40 min."},
+  {t:"20:30",h:"Anthos",b:"Reservar",w:"Jantar · 8 pessoas",n:"Única reserva de Corfu e ainda em aberto.",s:"warn"}
+]},
+
+{d:"17",wd:"qui",leg:"cz",title:"Corfu → Praga",sub:"Terceiro país, terceiro clima.",items:[
+  {t:"09:00",h:"Manhã livre",w:"Café nos arcos do Liston"},
+  {t:"11:00",h:"Checkout"},
+  {t:"12:00",h:"Aeroporto de Corfu (CFU)",w:"~10 min do centro"},
+  {t:"14:30",h:"FR 1544 · Corfu → Praga",w:"Pouso 15h40",n:"A Chéquia está 1h atrás da Grécia."},
+  {t:"16:40",h:"Check-in — Century Old Town",w:"Na Poříčí 7, Praga 1",n:"Prédio neobarroco de 1895. Check-in a partir das 15h, checkout até 12h. O Palladium e a Na Příkopě ficam ao lado.",s:"ok"},
+  {t:"17:30",h:"Primeiro giro pela Old Town",w:"Torre da Pólvora, Casa Municipal, praça central",n:"O relógio astronômico dá a hora cheia — a de 19h costuma ter menos gente que as do meio da tarde."},
+  {t:"20:30",h:"V Zátiší",b:"Confirmado",w:"Liliová 1 · 8 pessoas · mesa até 22h50",n:"Recomendado pelo Michelin. Uns 15 min a pé do hotel, atravessando a Old Town.",s:"ok"}
+]},
+
+{d:"18",wd:"sex",leg:"cz",title:"Castelo e Malá Strana",sub:"Descer a colina até o almoço à beira do Vltava.",items:[
+  {t:"09:30",h:"Subida ao Castelo",w:"Tram 22 até Pražský hrad",n:"Subir de tram e descer a pé é bem menos cansativo que o contrário."},
+  {t:"10:00",h:"Castelo de Praga",w:"Até ~12h30",n:"Catedral de São Vito, Palácio Real Velho e o Beco de Ouro."},
+  {t:"12:45",h:"Descida pela Nerudova",w:"Castelo → Malá Strana, ~15 min a pé"},
+  {t:"14:00",h:"Kampa Park",b:"Confirmado",w:"Ilha de Kampa · duas mesas de 4 · terraço à beira-rio",n:"Vista da Ponte Carlos e do rio. A mesa precisa ser devolvida às 16h30. Pedir por e-mail que as duas mesas fiquem juntas.",s:"ok"},
+  {t:"16:45",h:"Ilha de Kampa e Ponte Carlos",w:"Muro do Lennon a caminho",n:"Saindo do almoço vocês já estão na ilha — é tudo a pé."},
+  {t:"18:00",h:"Passeio de barco no Vltava",b:"Opcional",w:"Saídas junto à Ponte Carlos"},
+  {t:"19:30",h:"Fim de tarde",w:"Cloud 9, no Hilton · Kayak Beach Bar · Hoppy House"},
+  {t:"21:30",h:"Jantar",b:"Reservar",w:"Único jantar de Praga ainda sem reserva",s:"warn"}
+]},
+
+{d:"19",wd:"sáb",leg:"cz",title:"Compras e Portfolio",sub:"Dia sem hora marcada até as 20h.",items:[
+  {t:"10:00",h:"Manhã livre"},
+  {t:"11:00",h:"Pařížská",w:"Rua do luxo, ligando a Old Town Square ao rio"},
+  {t:"15:00",h:"Na Příkopě",w:"Lojas populares e galerias",n:"O Palladium fica na esquina do hotel, se sobrar disposição."},
+  {t:"20:00",h:"Portfolio Restaurant",b:"Confirmado",w:"Lannův palác, Havlíčkova 1030/1 · 8 pessoas · reserva 18646",n:"Poucos minutos a pé da Na Příkopě e do hotel. +420 607 003 878",s:"ok"}
+]},
+
+{d:"20",wd:"dom",leg:"cz",title:"Praga → Paris → Fortaleza",sub:"Volta para casa.",items:[
+  {t:"04:30",h:"Checkout e saída para o aeroporto",w:"Voo bem cedo — vale acertar o café da manhã ou um táxi na véspera.",flag:1,s:"warn"},
+  {t:"06:30",h:"AF 1583 · Praga → Paris",w:"Pouso 08:25 em CDG"},
+  {t:"13:25",h:"AF 416 · Paris → Fortaleza",w:"Pouso 17:45",n:"Quase 5 horas de conexão em Paris.",s:"ok"}
+]}
+];
+
+const info = `
+<div class="dayhead">
+  <div class="date">Referência</div>
+  <h2>Tudo em um lugar</h2>
+  <p>Reservas, hotéis, pendências e o que ainda falta preencher.</p>
+</div>
+
+<div class="sec">
+  <h3>Reservas confirmadas</h3>
+  <div class="row"><div class="k">Amethyst Sky Bar & Rooftop — 11/09, 20h às 23h</div><div class="v">Bulevardul Unirii 47C, Bucareste · 8 pessoas · área Rooftop (Outdoor)</div></div>
+  <div class="row"><div class="k">V Zátiší — 17/09, 20h30 às 22h50</div><div class="v">Liliová 1, Praga 1 · 8 pessoas · vzatisi@zatisigroup.cz · +420 222 221 155</div></div>
+  <div class="row"><div class="k">Kampa Park — 18/09, 14h às 16h30</div><div class="v">Ilha de Kampa, Praga · duas reservas de 4 · terraço à beira-rio · taxa de serviço de 12% para grupos de 8+</div></div>
+  <div class="row"><div class="k">Portfolio Restaurant — 19/09, 20h</div><div class="v">Lannův palác, Havlíčkova 1030/1, Praga 1 · 8 pessoas · reserva nº 18646 · +420 607 003 878</div></div>
+</div>
+
+<div class="sec">
+  <h3>Hotéis</h3>
+  <div class="row"><div class="k">The Marmorosch Bucharest — 11 a 12/09</div><div class="v">Strada Doamnei 2-6, Old Town · check-in 15h · checkout 12h</div></div>
+  <div class="row"><div class="k">Buzë Boutique Hotel — 12 a 15/09</div><div class="v">Rruga Butrinti, Lagja 1, Saranda · +355 67 716 7830 · check-in 14h · checkout 11h</div></div>
+  <div class="row"><div class="k">Folie Marine Beach Hotel & Club — 15 a 16/09</div><div class="v">Rruga Jali Superior A, Jale · check-in 15h · checkout 11h30</div></div>
+  <div class="row"><div class="k">Arcadion Hotel — 16 a 17/09</div><div class="v">Vlassopoulou 2 / Kapodistriou 44, Liston, Corfu · +30 26610 37670 · check-in 15h · checkout 11h</div></div>
+  <div class="row"><div class="k">Century Old Town Prague — 17 a 20/09</div><div class="v">Na Poříčí 7, Praga 1 · check-in 15h · checkout 12h</div></div>
+</div>
+
+<div class="sec">
+  <h3>Voos e travessias</h3>
+  <div class="row"><div class="k">AF 415 · 10/09 · Fortaleza → Paris (CDG)</div><div class="v">19:55 → 09:35 (+1)</div></div>
+  <div class="row"><div class="k">AF 6634 · 11/09 · Paris → Bucareste (OTP)</div><div class="v">12:00 → 15:50</div></div>
+  <div class="row"><div class="k">FR 7564 · 12/09 · Bucareste → Corfu (CFU)</div><div class="v">12:00 → 13:35</div></div>
+  <div class="row"><div class="k">Ferry · 12/09 · Corfu → Saranda</div><div class="v">16:00 — último útil do dia, o seguinte é às 20:00</div></div>
+  <div class="row"><div class="k">Ferry · 16/09 · Saranda → Corfu</div><div class="v">Começo da tarde — horário e empresa a confirmar</div></div>
+  <div class="row"><div class="k">FR 1544 · 17/09 · Corfu → Praga (PRG)</div><div class="v">14:30 → 15:40</div></div>
+  <div class="row"><div class="k">AF 1583 · 20/09 · Praga → Paris (CDG)</div><div class="v">06:30 → 08:25</div></div>
+  <div class="row"><div class="k">AF 416 · 20/09 · Paris → Fortaleza</div><div class="v">13:25 → 17:45</div></div>
+</div>
+
+<div class="sec">
+  <h3>Fusos</h3>
+  <div class="row"><div class="v">Romênia e Grécia estão 1h à frente de Albânia e Chéquia. O relógio volta uma hora ao chegar em Saranda (12/09), adianta ao voltar para Corfu (16/09) e volta de novo ao pousar em Praga (17/09). Todos os horários deste roteiro estão na hora local de cada lugar.</div></div>
+</div>
+
+<div class="sec">
+  <h3>Pendências</h3>
+  <ol class="todo">
+    <li><b>Jantar de 18/09 em Praga</b> — o único da viagem sem reserva.</li>
+    <li><b>Anthos</b>, Corfu, 16/09 — mesa para 8.</li>
+    <li><b>Principote</b>, Ksamil, 13/09 — espreguiçadeiras e almoço para 8.</li>
+    <li><b>Mare Nostrum</b>, Saranda, 14/09 — jantar para 8.</li>
+    <li><b>Jantar em Dhermi</b>, 15/09 — escolher entre Luciano e Azul by Havana e reservar.</li>
+    <li><b>Kampa Park</b> — pedir que as duas mesas de 4 fiquem juntas no terraço.</li>
+    <li><b>Barco de 15/09</b> — confirmar com o operador a saída pela baía de Jale.</li>
+    <li><b>Ferry de 16/09</b> — comprar as passagens Saranda → Corfu.</li>
+    <li><b>Carros na Albânia</b> — dois carros, retirada em Saranda e devolução antes do ferry.</li>
+  </ol>
+</div>
+
+<div class="sec">
+  <h3>O que falta para completar este guia</h3>
+  <ol class="todo">
+    <li>Locadora dos carros na Albânia: onde retirar, onde devolver e em que horário.</li>
+    <li>Empresa e horário do ferry de 16/09.</li>
+    <li>Nome e contato do operador do barco privado.</li>
+    <li>Se há transfer contratado do aeroporto de Bucareste ao hotel.</li>
+  </ol>
+</div>
+
+<footer>Roteiro fechado em agosto de 2026 · 4 casais</footer>
+`;
+
+/* ---------- render ---------- */
+const chips = document.getElementById("chips");
+const panels = document.getElementById("panels");
+
+days.forEach((day,i)=>{
+  const c=document.createElement("button");
+  c.className="chip";c.dataset.leg=day.leg;c.dataset.i=i;
+  c.innerHTML=`<b>${day.d}</b><span>${day.wd}</span>`;
+  chips.appendChild(c);
+
+  const p=document.createElement("section");
+  p.className="panel";p.dataset.i=i;
+  let html=`<div class="dayhead">
+      <div class="date">${day.d} setembro · ${day.wd} · ${LEG[day.leg]}</div>
+      <h2>${day.title}</h2>
+      <p>${day.sub}</p>
+    </div><div class="rail">`;
+  day.items.forEach(ev=>{
+    html+=`<div class="ev ${ev.s||""}">
+      <span class="t">${ev.t}</span>
+      <h3>${ev.h}${ev.b?`<span class="badge ${ev.b==="Confirmado"?"":"open"}">${ev.b}</span>`:""}</h3>
+      ${ev.w?`<div class="where">${ev.w}</div>`:""}
+      ${ev.n?`<div class="note${ev.flag?" flag":""}">${ev.n}</div>`:""}
+    </div>`;
+  });
+  html+=`</div>`;
+  if(day.aside) html+=`<div class="aside"><b>${day.aside.t}</b>${day.aside.b}</div>`;
+  p.innerHTML=html;
+  panels.appendChild(p);
+});
+
+const cInfo=document.createElement("button");
+cInfo.className="chip";cInfo.dataset.i="info";
+cInfo.innerHTML=`<b>i</b><span>info</span>`;
+chips.appendChild(cInfo);
+
+const pInfo=document.createElement("section");
+pInfo.className="panel";pInfo.dataset.i="info";pInfo.innerHTML=info;
+panels.appendChild(pInfo);
+
+const allChips=[...document.querySelectorAll(".chip")];
+const allPanels=[...document.querySelectorAll(".panel")];
+const legname=document.getElementById("legname");
+const prev=document.getElementById("prev"), next=document.getElementById("next");
+let cur=0;
+
+function show(i){
+  cur=i;
+  allChips.forEach((c,k)=>c.classList.toggle("on",k===i));
+  allPanels.forEach((p,k)=>p.classList.toggle("on",k===i));
+  const leg = days[i] ? days[i].leg : "cz";
+  document.documentElement.style.setProperty("--leg",`var(--${leg})`);
+  legname.textContent = days[i] ? LEG[leg] : "Referência";
+  prev.disabled = i===0; next.disabled = i===allChips.length-1;
+  allChips[i].scrollIntoView({block:"nearest",inline:"center",behavior:"smooth"});
+  window.scrollTo({top:0,behavior:"instant"});
+}
+allChips.forEach((c,i)=>c.addEventListener("click",()=>show(i)));
+prev.addEventListener("click",()=>show(Math.max(0,cur-1)));
+next.addEventListener("click",()=>show(Math.min(allChips.length-1,cur+1)));
+document.getElementById("toInfo").addEventListener("click",()=>show(allChips.length-1));
+document.addEventListener("keydown",e=>{
+  if(e.key==="ArrowRight") show(Math.min(allChips.length-1,cur+1));
+  if(e.key==="ArrowLeft") show(Math.max(0,cur-1));
+});
+show(0);
+</script>
+</body>
+</html>
