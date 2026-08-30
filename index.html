@@ -4,9 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Setembro 2026 — Bucareste, Jônica, Praga</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400;12..96,75..100,600;12..96,75..100,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<meta name="description" content="Roteiro da viagem de 10 a 20 de setembro de 2026 — Bucareste, Riviera Albanesa, Corfu e Praga.">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#E9ECE6">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Roteiro">
+<link rel="apple-touch-icon" href="./icon-180.png">
+<link rel="icon" href="./icon-192.png">
 <style>
 :root{
   --ink:#17222C;
@@ -20,13 +25,16 @@
   --warn:#B4472A;
   --leg:var(--ro);
   --rail:14px;
+  --serif:ui-serif,Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --mono:ui-monospace,Menlo,"SF Mono",Consolas,monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
 body{
   background:var(--paper);
   color:var(--ink);
-  font-family:"Newsreader",Georgia,serif;
+  font-family:var(--serif);
   font-size:17px;
   line-height:1.5;
   padding-bottom:56px;
@@ -43,12 +51,11 @@ header{
 .ribbon{height:4px;background:var(--leg);transition:background .35s ease}
 .masthead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:11px 18px 8px;max-width:720px;margin:0 auto}
 .masthead h1{
-  font-family:"Bricolage Grotesque",system-ui,sans-serif;
+  font-family:var(--sans);
   font-weight:800;font-size:16px;letter-spacing:-.02em;
-  font-variation-settings:"wdth" 85;
 }
 .masthead .legname{
-  font-family:"JetBrains Mono",monospace;font-size:10px;
+  font-family:var(--mono);font-size:10px;
   text-transform:uppercase;letter-spacing:.14em;color:var(--leg);
   white-space:nowrap;transition:color .35s ease;
 }
@@ -56,7 +63,7 @@ nav{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
 .chips{display:flex;gap:6px;padding:0 18px 11px;width:max-content;min-width:100%}
 .chip{
-  font-family:"JetBrains Mono",monospace;
+  font-family:var(--mono);
   background:transparent;border:1px solid var(--line);border-radius:2px;
   color:var(--ink-soft);cursor:pointer;
   padding:6px 9px 5px;text-align:center;line-height:1.15;
@@ -78,13 +85,12 @@ nav::-webkit-scrollbar{display:none}
 
 .dayhead{margin-bottom:20px}
 .dayhead .date{
-  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--leg);margin-bottom:5px;
 }
 .dayhead h2{
-  font-family:"Bricolage Grotesque",system-ui,sans-serif;
+  font-family:var(--sans);
   font-weight:800;font-size:30px;line-height:1.06;letter-spacing:-.03em;
-  font-variation-settings:"wdth" 82;
 }
 .dayhead p{font-size:15px;color:var(--ink-soft);margin-top:7px;font-style:italic}
 
@@ -103,18 +109,18 @@ nav::-webkit-scrollbar{display:none}
 .ev.ok:before{background:var(--leg);border-color:var(--leg)}
 .ev.warn:before{background:var(--warn);border-color:var(--warn)}
 .ev .t{
-  font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:600;
+  font-family:var(--mono);font-size:11.5px;font-weight:600;
   letter-spacing:.03em;color:var(--ink-soft);display:block;margin-bottom:2px;
 }
 .ev h3{
-  font-family:"Bricolage Grotesque",system-ui,sans-serif;
+  font-family:var(--sans);
   font-weight:600;font-size:17px;letter-spacing:-.01em;line-height:1.25;
 }
 .ev .where{font-size:14.5px;color:var(--ink-soft);margin-top:2px}
 .ev .note{font-size:14.5px;margin-top:6px}
 .ev .note.flag{color:var(--warn)}
 .badge{
-  display:inline-block;font-family:"JetBrains Mono",monospace;
+  display:inline-block;font-family:var(--mono);
   font-size:9px;letter-spacing:.1em;text-transform:uppercase;
   padding:2px 5px;border-radius:2px;margin-left:6px;vertical-align:2px;
   background:var(--leg);color:#fff;
@@ -125,25 +131,26 @@ nav::-webkit-scrollbar{display:none}
   background:var(--card);border-left:2px solid var(--leg);
   padding:12px 14px;margin:2px 0 22px;font-size:14.5px;
 }
-.aside b{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:13px;display:block;margin-bottom:3px}
+.aside b{font-family:var(--sans);font-weight:600;font-size:13px;display:block;margin-bottom:3px}
 
 /* ---------- info ---------- */
 .sec{margin-bottom:28px}
 .sec h3{
-  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--ink-soft);
   padding-bottom:6px;border-bottom:1px solid var(--line);margin-bottom:12px;
 }
 .row{padding:10px 0;border-bottom:1px solid var(--line)}
 .row:last-child{border-bottom:0}
-.row .k{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:15.5px}
+.row .k{font-family:var(--sans);font-weight:600;font-size:15.5px}
 .row .v{font-size:14.5px;color:var(--ink-soft);margin-top:2px}
 .row .v a{color:var(--io)}
+.row .k a{color:var(--io);text-decoration:none;border-bottom:1px solid var(--io)}
 .todo{padding-left:20px;font-size:15px}
 .todo li{margin-bottom:9px}
 .todo li::marker{color:var(--warn)}
 
-footer{padding:22px 0 8px;font-size:13px;color:var(--ink-soft);text-align:center;font-family:"JetBrains Mono",monospace;letter-spacing:.04em}
+footer{padding:22px 0 8px;font-size:13px;color:var(--ink-soft);text-align:center;font-family:var(--mono);letter-spacing:.04em}
 
 /* ---------- bottom pager ---------- */
 .pager{
@@ -152,7 +159,7 @@ footer{padding:22px 0 8px;font-size:13px;color:var(--ink-soft);text-align:center
 }
 .pager button{
   flex:1;background:none;border:0;padding:15px 8px;cursor:pointer;
-  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;
   text-transform:uppercase;color:var(--ink);
 }
 .pager button:disabled{opacity:.28}
@@ -185,35 +192,40 @@ const LEG = {ro:"Romênia", io:"Costa Jônica", cz:"Chéquia"};
 
 const days = [
 {d:"10",wd:"qui",leg:"ro",title:"Fortaleza → Paris",sub:"Noite no ar. A viagem começa.",items:[
-  {t:"19:55",h:"AF 415 · Fortaleza → Paris",w:"CDG · chegada 09h35 do dia 11",n:"Noite no ar. Vocês perdem 5 horas no fuso.",s:"ok"}
+  {t:"18:55",h:"Fim do check-in",w:"Aeroporto Pinto Martins",n:"Cada casal tem seu próprio localizador. Os bilhetes não incluem bagagem despachada.",flag:1,s:"warn"},
+  {t:"19:55",h:"AF 415 · Fortaleza → Paris (CDG)",w:"Chegada 09h35 do dia 11 · Terminal 2E",n:"O grupo perde 5 horas no fuso.",s:"ok"}
 ]},
 
 {d:"11",wd:"sex",leg:"ro",title:"Bucareste",sub:"Só uma noite na cidade — e ela já tem hora marcada.",items:[
-  {t:"09:35",h:"Chegada em Paris",w:"Conexão"},
-  {t:"12:00",h:"AF 6634 · Paris → Bucareste",w:"Chegada 15h50 — Henri Coandă (OTP)"},
-  {t:"16:50",h:"Transfer ao centro",w:"≈40 min do OTP até a Old Town"},
-  {t:"17:00",h:"Check-in — The Marmorosch",w:"Strada Doamnei 2-6, Old Town",n:"Antigo Banco Marmorosch Blank, de 1915. O bar The Vault funciona dentro do cofre original. Check-in a partir das 15h, checkout até 12h.",s:"ok"},
+  {t:"09:35",h:"Chegada em Paris",w:"CDG 2E → 2F"},
+  {t:"12:00",h:"AF 6634 · Paris → Bucareste",w:"Chegada 15h50 — Henri Coandă (OTP)",n:"Operado pela TAROM. Fim do check-in às 11h20."},
+  {t:"16:00",h:"Transfer OTP → Old Town",w:"≈40 min",n:"O hotel foi avisado de chegada entre 16h e 17h."},
+  {t:"17:00",h:"Check-in — The Marmorosch",b:"Confirmado",w:"Strada Doamnei 2-6, Setor 3 · +40 371 533 100",n:"Antigo Banco Marmorosch Blank, de 1915. Cada casal tem sua própria reserva.",s:"ok"},
   {t:"17:45",h:"Passagem Villacrosse e Lipscani",w:"A 2 min do hotel",n:"Galeria envidraçada com bares, depois as ruelas da Old Town e a Igreja de São Nicolau."},
   {t:"19:15",h:"Bulevardul Unirii a pé",w:"Eixo das fontes, de frente para o Palácio do Parlamento",n:"Pôr do sol por volta das 19h45 — dá para descer o bulevar direto até o rooftop."},
-  {t:"20:00",h:"Amethyst Sky Bar & Rooftop",b:"Confirmado",w:"Bulevardul Unirii 47C · 8 pessoas · Rooftop (Outdoor) · até 23h",n:"Este é o jantar da noite. O Papila saiu do roteiro — não cabia entre a chegada e as 20h.",s:"ok"}
-],aside:{t:"O que ficou de fora",b:"Palácio do Parlamento por dentro e Ateneu Romeno: as visitas guiadas encerram no fim da tarde e vocês só chegam ao hotel às 17h. Ficam para uma próxima."}},
+  {t:"20:00",h:"Amethyst Sky Bar & Rooftop",b:"Confirmado",w:"Bulevardul Unirii 47C · 8 pessoas · Rooftop (Outdoor) · até 23h",n:"Este é o jantar da noite.",s:"ok"}
+],aside:{t:"O que ficou de fora",b:"Palácio do Parlamento por dentro e Ateneu Romeno: as visitas guiadas encerram no fim da tarde e vocês só chegam ao hotel às 17h."}},
 
-{d:"12",wd:"sáb",leg:"io",title:"Bucareste → Saranda",sub:"Avião, ferry e o primeiro pôr do sol albanês.",items:[
-  {t:"08:30",h:"Café da manhã e checkout"},
+{d:"12",wd:"sáb",leg:"io",title:"Bucareste → Corfu → Saranda",sub:"Uma tarde grega inteira de brinde, antes do ferry.",items:[
+  {t:"08:30",h:"Café da manhã e checkout",w:"Marmorosch · checkout até 12h"},
   {t:"09:30",h:"Saída para o aeroporto"},
-  {t:"12:00",h:"FR 7564 · Bucareste → Corfu",w:"Pouso 13h35"},
-  {t:"15:00",h:"Porto de Corfu",w:"Do aeroporto ao porto são ~15 min",n:"Chegar com folga: há controle de passaporte na saída da Grécia."},
-  {t:"16:00",h:"Ferry Corfu → Saranda",w:"Último ferry útil do dia",n:"Se perderem este, o próximo só sai às 20h. A Albânia está 1h atrás da Grécia — o relógio volta uma hora na travessia.",flag:1,s:"warn"},
-  {t:"17:30",h:"Check-in — Buzë Boutique Hotel",w:"Rruga Butrinti, Lagja 1, Saranda · +355 67 716 7830",n:"Três noites, até a manhã do dia 15. Check-in a partir das 14h, checkout até 11h. Praia privativa e piscina de frente para o mar.",s:"ok"},
-  {t:"19:00",h:"Lost Seaside",b:"Sem reserva",w:"A pé do hotel",n:"Pôr do sol às 19h25 e jantar ali mesmo. Casa animada, com música — bom começo de viagem.",s:"warn"}
-]},
+  {t:"12:00",h:"FR 7564 · Bucareste → Corfu",w:"Pouso 13h35",n:"Ryanair."},
+  {t:"14:00",h:"Yellow Lockers — porto de Corfu",b:"Pago",w:"Ethnikis Antistaseos 4",n:"4 armários grandes reservados das 14h às 19h para o grupo. Largar as malas e ficar leves a tarde toda.",s:"ok"},
+  {t:"14:30",h:"Almoço no Lampadina",w:"Corfu Old Town",n:"Reservas: Ampakas e Spianada Meats & Greens."},
+  {t:"16:30",h:"Compras e Old Town",w:"Liston e ruelas venezianas",n:"Volta a pé ao porto para pegar as malas."},
+  {t:"18:15",h:"Voltar ao porto",w:"Retirar as malas dos armários",n:"Há controle de passaporte na saída da Grécia — chegar com folga."},
+  {t:"19:00",h:"FERRY Corfu → Saranda",b:"Pago",w:"Rena S II · reserva 1002THMPP · 8 passageiros",n:"Chegada 19h no horário albanês: o relógio volta uma hora na travessia.",s:"ok"},
+  {t:"20:00",h:"Check-in — Buzë Boutique Hotel",b:"Confirmado",w:"Rruga Butrinti, Saranda · +355 67 716 7830",n:"3 noites, café da manhã incluído. Recepção até 23h30, checkout até 11h.",s:"ok"},
+  {t:"21:30",h:"Jantar no Lost Seaside",b:"Confirmado",w:"8 pessoas · a pé do hotel · +355 69 386 1838",n:"Ref. BhCi_DxlSs6PAqMiczH8ww. Casa animada, com música.",s:"ok"}
+],aside:{t:"Por que o ferry das 19h",b:"As saídas do dia são 13h, 14h, 15h, 19h e 20h30. Com pouso às 13h35, o das 15h é apertado demais — e o das 19h abre a tarde inteira em Corfu."}},
 
-{d:"13",wd:"dom",leg:"io",title:"Butrint e Ksamil",sub:"Ruínas de manhã, água turquesa o resto do dia.",items:[
-  {t:"09:45",h:"Saída de carro",w:"Saranda → Butrint, ~25 min"},
-  {t:"10:30",h:"Butrint",w:"Parque arqueológico, Patrimônio UNESCO",n:"Duas horas dão conta do circuito principal: teatro, batistério, castelo veneziano."},
-  {t:"13:00",h:"Principote & Tulum",b:"Reservar",w:"Ksamil",n:"Almoço no clube e a tarde inteira ali. Vale garantir as espreguiçadeiras para 8 com antecedência — em setembro ainda enche.",s:"warn"},
-  {t:"18:30",h:"Poda",w:"Ksamil",n:"Pôr do sol e noite. Fica a poucos minutos do Principote."}
-]},
+{d:"13",wd:"dom",leg:"io",title:"Missa, Butrint e Ksamil",sub:"Manhã sem pressa, tarde na água.",items:[
+  {t:"08:30",h:"Café da manhã sem hora",w:"Buzë",n:"Incluído na diária."},
+  {t:"09:30",h:"Missa na Santa Marcelina",w:"Saranda · quem quiser",n:"Os outros ficam no café da manhã sem pressa.",s:"ok"},
+  {t:"13:45",h:"Retirada do carro — Sixt",b:"Confirmado",w:"Balcão do Sarandë Porto",n:"Marcado para as 14h, tolerância de 60 min. Km livre. Devolução 16/09 às 14h. Sixt +355 69 804 4972.",s:"ok"},
+  {t:"14:40",h:"Butrint",w:"Parque arqueológico, Patrimônio UNESCO",n:"Só para dar por visto — 1h no máximo. Sol forte nesse horário e pouca sombra: água e chapéu.",flag:1,s:"warn"},
+  {t:"16:00",h:"Ksamil — beach club",b:"A definir",w:"Almoço tardio, praia e pôr do sol às 19h20",n:"Ordem sugerida: Ohana (4,7) · Abiori (4,5) · Africana (4,4) · Bianco (4,2) · GREG (4,2) · Foga · Rilinda · Mango · Principote (3,8) · Bora Bora (3,8) · Poda (3,7). Snacks no caminho, já que o almoço fica para lá.",s:"warn"}
+],aside:{t:"Se o critério for animação",b:"Bianco, GREG e Africana sobem na lista — Bianco é o único com restaurante, piscina, rooftop e balada no mesmo lugar, aberto até as 5h, o que resolve almoço, pôr do sol e noite sem trocar de endereço."}},
 
 {d:"14",wd:"seg",leg:"io",title:"Gjirokastër",sub:"A cidade de pedra, subindo a serra.",items:[
   {t:"10:00",h:"Saída em dois carros",w:"Saranda → Gjirokastër, ~1h20"},
@@ -224,33 +236,35 @@ const days = [
   {t:"21:00",h:"Mare Nostrum",b:"Reservar",w:"Jantar · 8 pessoas",s:"warn"}
 ],aside:{t:"Alternativa para o fim de tarde",b:"Subir ao Castelo de Lëkurësi às 18h45 e ficar só no mirante para o pôr do sol das 19h20 — o restaurante de lá é o ponto fraco, a vista não. Nesse caso o Asi Rooftop sai do dia."}},
 
-{d:"15",wd:"ter",leg:"io",title:"Jale, barco e Dhermi",sub:"O dia do mar aberto.",items:[
+{d:"15",wd:"ter",leg:"io",title:"Jale, barco e Dhermi",sub:"Aniversário do Bruno — e o dia do mar aberto.",items:[
+  {t:"—",h:"Aniversário do Bruno 🎂",w:"O dia inteiro",n:"Vale combinar algo com o hotel ou com o restaurante de Dhermi antes.",s:"ok"},
   {t:"08:30",h:"Café da manhã e checkout do Buzë",w:"Checkout até 11h"},
   {t:"11:00",h:"Estrada Saranda → Jale",w:"~1h45 pela costa"},
   {t:"13:00",h:"Almoço",b:"Decidir",w:"No próprio Folie Marine ou na Taverna Lefteri, em Himara",s:"warn"},
-  {t:"14:15",h:"Chegada ao Folie Marine Beach Hotel & Club",w:"Rruga Jali Superior A, praia de Jale",n:"O check-in oficial começa às 15h — se os quartos não estiverem prontos, deixem as malas e sigam direto para o barco. Checkout até 11h30.",flag:1,s:"warn"},
+  {t:"14:15",h:"Chegada ao Folie Marine Beach Hotel & Club",b:"Pago",w:"Rruga Jali Superior A, praia de Jale",n:"O check-in oficial começa às 15h — se os quartos não estiverem prontos, deixem as malas e sigam para o barco. Checkout até 11h30.",s:"ok"},
   {t:"15:30",h:"Barco privado — All Himara Coastline",w:"Até 19h15",n:"Pirate's Cave, grutas e baías do Gjipe, Filikuri, túnel de submarinos e península de Porto Palermo. Pôr do sol no mar na volta. Custo dividido entre os quatro casais.",s:"ok"},
-  {t:"20:45",h:"Jantar em Dhermi",b:"Decidir",w:"Luciano ou Azul by Havana",s:"warn"},
+  {t:"20:45",h:"Jantar de aniversário em Dhermi",b:"Decidir",w:"Luciano ou Azul by Havana",n:"Avisar que é aniversário na hora de reservar.",s:"warn"},
   {t:"22:30",h:"Depois",w:"360 Sunset Bar, Havana — ou ficar pelo hotel mesmo"}
-],aside:{t:"Confirmar com o operador",b:"O Gjipe fica a 2,6 km do Folie Marine e a Pirate's Cave a poucos minutos de barco da baía de Jale. Vale perguntar se o barco pode sair e voltar do próprio hotel em vez de Himara — economiza o deslocamento de ida e volta."}},
+],aside:{t:"Confirmar com o operador",b:"O Gjipe fica a 2,6 km do Folie Marine e a Pirate's Cave a poucos minutos de barco da baía de Jale. Vale perguntar se o barco pode sair e voltar do próprio hotel em vez de Himara."}},
 
-{d:"16",wd:"qua",leg:"io",title:"Jale → Corfu",sub:"De volta à Grécia, agora para dormir no Liston.",items:[
-  {t:"08:30",h:"Café da manhã e checkout"},
-  {t:"10:00",h:"Jale → Saranda",w:"~1h45",n:"Devolução dos dois carros em Saranda antes do ferry."},
-  {t:"13:00",h:"Ferry Saranda → Corfu",b:"A confirmar",w:"Começo da tarde",n:"Horário e empresa ainda não fechados. O relógio adianta 1h ao chegar na Grécia.",flag:1,s:"warn"},
-  {t:"15:00",h:"Check-in — Arcadion Hotel",w:"Vlassopoulou 2 / Kapodistriou 44, Liston · +30 26610 37670",n:"Varandas dando para a Spianada e o Forte Velho. Check-in a partir das 15h, checkout até 11h. Tem bistrô no rooftop, se quiserem um drink antes do jantar.",s:"ok"},
-  {t:"17:00",h:"Old Town de Corfu",w:"Liston, Spianada, ruelas venezianas",n:"Se o ferry chegar cedo e sobrar tarde, a opção é o La Grotta Beach Bar e a praia Agios Spyridon (restaurante Vrachos) — fora da cidade, cerca de 40 min."},
+{d:"16",wd:"qua",leg:"io",title:"Jale → Saranda → Corfu",sub:"De volta à Grécia, agora para dormir no Liston.",items:[
+  {t:"08:30",h:"Café da manhã e checkout",w:"Folie Marine · checkout até 11h30"},
+  {t:"11:00",h:"Jale → Saranda",b:"Sair até 12h45",w:"~1h45 de estrada",n:"O ferry é às 16h e o carro tem de voltar às 14h — este é o trecho mais apertado da viagem.",flag:1,s:"warn"},
+  {t:"14:00",h:"Devolução do carro — Sixt",w:"Balcão do Sarandë Porto",n:"Chegando ao porto, seguir a placa RENT A CAR à esquerda até o SIXT CAR RETURN."},
+  {t:"16:00",h:"FERRY Saranda → Corfu",b:"Pago",w:"Santa (high speed) · chegada 17h30",n:"Reserva 1002THMPP. O relógio adianta 1h ao chegar na Grécia.",s:"ok"},
+  {t:"18:00",h:"Check-in — Arcadion Hotel",b:"Confirmado",w:"Vlassopoulou 2 / Kapodistriou 44, Liston · +30 26610 37670",n:"Vista da Spianada e do Liston, café da manhã incluído. Sem estacionamento.",s:"ok"},
+  {t:"18:45",h:"Old Town de Corfu",w:"Liston, Spianada, ruelas venezianas",n:"Com a chegada às 17h30, a tarde ficou curta: La Grotta e a praia Agios Spyridon só se o dia render."},
   {t:"20:30",h:"Anthos",b:"Reservar",w:"Jantar · 8 pessoas",n:"Única reserva de Corfu e ainda em aberto.",s:"warn"}
 ]},
 
 {d:"17",wd:"qui",leg:"cz",title:"Corfu → Praga",sub:"Terceiro país, terceiro clima.",items:[
   {t:"09:00",h:"Manhã livre",w:"Café nos arcos do Liston"},
-  {t:"11:00",h:"Checkout"},
+  {t:"11:00",h:"Checkout",w:"Arcadion · até 11h"},
   {t:"12:00",h:"Aeroporto de Corfu (CFU)",w:"~10 min do centro"},
   {t:"14:30",h:"FR 1544 · Corfu → Praga",w:"Pouso 15h40",n:"A Chéquia está 1h atrás da Grécia."},
-  {t:"16:40",h:"Check-in — Century Old Town",w:"Na Poříčí 7, Praga 1",n:"Prédio neobarroco de 1895. Check-in a partir das 15h, checkout até 12h. O Palladium e a Na Příkopě ficam ao lado.",s:"ok"},
-  {t:"17:30",h:"Primeiro giro pela Old Town",w:"Torre da Pólvora, Casa Municipal, praça central",n:"O relógio astronômico dá a hora cheia — a de 19h costuma ter menos gente que as do meio da tarde."},
-  {t:"20:30",h:"V Zátiší",b:"Confirmado",w:"Liliová 1 · 8 pessoas · mesa até 22h50",n:"Recomendado pelo Michelin. Uns 15 min a pé do hotel, atravessando a Old Town.",s:"ok"}
+  {t:"16:40",h:"Check-in — Century Old Town",b:"Confirmado",w:"Na Poříčí 7, Praga 1 · +420 221 800 800",n:"3 noites. Prédio neobarroco de 1895.",s:"ok"},
+  {t:"17:30",h:"Primeiro giro pela Old Town",w:"Torre da Pólvora, Casa Municipal, praça central",n:"O relógio astronômico dá a hora cheia — a de 19h costuma ter menos gente."},
+  {t:"20:30",h:"V Zátiší",b:"Confirmado",w:"Liliová 1 · 8 pessoas · mesa até 22h50",n:"Recomendado pelo Michelin. Uns 15 min a pé do hotel. vzatisi@zatisigroup.cz · +420 222 221 155.",s:"ok"}
 ]},
 
 {d:"18",wd:"sex",leg:"cz",title:"Castelo e Malá Strana",sub:"Descer a colina até o almoço à beira do Vltava.",items:[
@@ -267,14 +281,14 @@ const days = [
 {d:"19",wd:"sáb",leg:"cz",title:"Compras e Portfolio",sub:"Dia sem hora marcada até as 20h.",items:[
   {t:"10:00",h:"Manhã livre"},
   {t:"11:00",h:"Pařížská",w:"Rua do luxo, ligando a Old Town Square ao rio"},
-  {t:"15:00",h:"Na Příkopě",w:"Lojas populares e galerias",n:"O Palladium fica na esquina do hotel, se sobrar disposição."},
+  {t:"15:00",h:"Na Příkopě",w:"Lojas populares e galerias",n:"O Palladium fica na esquina do hotel."},
   {t:"20:00",h:"Portfolio Restaurant",b:"Confirmado",w:"Lannův palác, Havlíčkova 1030/1 · 8 pessoas · reserva 18646",n:"Poucos minutos a pé da Na Příkopě e do hotel. +420 607 003 878",s:"ok"}
 ]},
 
 {d:"20",wd:"dom",leg:"cz",title:"Praga → Paris → Fortaleza",sub:"Volta para casa.",items:[
-  {t:"04:30",h:"Checkout e saída para o aeroporto",w:"Voo bem cedo — vale acertar o café da manhã ou um táxi na véspera.",flag:1,s:"warn"},
-  {t:"06:30",h:"AF 1583 · Praga → Paris",w:"Pouso 08:25 em CDG"},
-  {t:"13:25",h:"AF 416 · Paris → Fortaleza",w:"Pouso 17:45",n:"Quase 5 horas de conexão em Paris.",s:"ok"}
+  {t:"04:30",h:"Checkout e saída para o aeroporto",w:"Fim do check-in às 05h50",n:"Voo bem cedo — acertar café da manhã e táxis com o hotel na véspera.",flag:1,s:"warn"},
+  {t:"06:30",h:"AF 1583 · Praga → Paris",w:"Pouso 08:25 em CDG 2F",},
+  {t:"13:40",h:"AF 416 · Paris → Fortaleza",w:"Pouso 17:45 · CDG 2E",n:"Mais de 5 horas de conexão em Paris.",s:"ok"}
 ]}
 ];
 
@@ -282,69 +296,87 @@ const info = `
 <div class="dayhead">
   <div class="date">Referência</div>
   <h2>Tudo em um lugar</h2>
-  <p>Reservas, hotéis, pendências e o que ainda falta preencher.</p>
+  <p>Reservas, hotéis, transportes e o que ainda falta fechar.</p>
 </div>
 
 <div class="sec">
-  <h3>Reservas confirmadas</h3>
-  <div class="row"><div class="k">Amethyst Sky Bar & Rooftop — 11/09, 20h às 23h</div><div class="v">Bulevardul Unirii 47C, Bucareste · 8 pessoas · área Rooftop (Outdoor)</div></div>
+  <h3>Voos</h3>
+  <div class="row"><div class="k">AF 415 · 10/09 · Fortaleza → Paris (CDG 2E)</div><div class="v">19:55 → 09:35 (+1) · check-in até 18:55</div></div>
+  <div class="row"><div class="k">AF 6634 · 11/09 · Paris (2F) → Bucareste (OTP)</div><div class="v">12:00 → 15:50 · operado pela TAROM · check-in até 11:20</div></div>
+  <div class="row"><div class="k">FR 7564 · 12/09 · Bucareste → Corfu (CFU)</div><div class="v">12:00 → 13:35 · Ryanair</div></div>
+  <div class="row"><div class="k">FR 1544 · 17/09 · Corfu → Praga (PRG)</div><div class="v">14:30 → 15:40 · Ryanair</div></div>
+  <div class="row"><div class="k">AF 1583 · 20/09 · Praga → Paris (CDG 2F)</div><div class="v">06:30 → 08:25 · check-in até 05:50</div></div>
+  <div class="row"><div class="k">AF 416 · 20/09 · Paris (2E) → Fortaleza</div><div class="v">13:40 → 17:45 · check-in até 12:40</div></div>
+  <div class="row"><div class="v">Cada casal tem seu próprio localizador. Nenhum bilhete inclui bagagem despachada.</div></div>
+</div>
+
+<div class="sec">
+  <h3>Ferries</h3>
+  <div class="row"><div class="k">12/09 · Corfu 19:00 → Saranda 19:00</div><div class="v">Rena S II · Ionian Cruises · reserva 1002THMPP · 8 passageiros</div></div>
+  <div class="row"><div class="k">16/09 · Saranda 16:00 → Corfu 17:30</div><div class="v">Santa (high speed) · mesma reserva</div></div>
+</div>
+
+<div class="sec">
+  <h3>Carro</h3>
+  <div class="row"><div class="k">Sixt · Sarandë Porto</div><div class="v">Retirada 13/09 às 14:00, devolução 16/09 às 14:00 · balcão aberto 09:00-17:00 · km livre · +355 69 804 4972 · reservations@sixtalbania.com</div></div>
+  <div class="row"><div class="v">São dois carros: um do casal Kamila e Bruno com mais um casal, outro dos outros dois casais.</div></div>
+</div>
+
+<div class="sec">
+  <h3>Hotéis</h3>
+  <div class="row"><div class="k">The Marmorosch Bucharest — 11 a 12/09</div><div class="v">Strada Doamnei 2-6, Old Town · +40 371 533 100 · check-in 15h, checkout 12h</div></div>
+  <div class="row"><div class="k">Buzë Boutique Hotel — 12 a 15/09</div><div class="v">Rruga Butrinti, Saranda · +355 67 716 7830 · check-in 14h (recepção até 23h30), checkout 11h · café incluído</div></div>
+  <div class="row"><div class="k">Folie Marine Beach Hotel & Club — 15 a 16/09</div><div class="v">Rruga Jali Superior A, praia de Jale · check-in 15h, checkout 11h30</div></div>
+  <div class="row"><div class="k">Arcadion Hotel — 16 a 17/09</div><div class="v">Vlassopoulou 2 / Kapodistriou 44, Liston, Corfu · +30 26610 37670 · check-in 15h, checkout 11h · café incluído</div></div>
+  <div class="row"><div class="k">Century Old Town Prague — 17 a 20/09</div><div class="v">Na Poříčí 7, Praga 1 · +420 221 800 800 · check-in 15h, checkout 12h</div></div>
+  <div class="row"><div class="v">Cada casal tem sua própria reserva — guardem o número e o PIN de vocês.</div></div>
+</div>
+
+<div class="sec">
+  <h3>Restaurantes confirmados</h3>
+  <div class="row"><div class="k">Amethyst Sky Bar & Rooftop — 11/09, 20h às 23h</div><div class="v">Bulevardul Unirii 47C, Bucareste · 8 pessoas · Rooftop (Outdoor)</div></div>
+  <div class="row"><div class="k">Lost Seaside — 12/09, 21h30</div><div class="v">Saranda · 8 pessoas · ref. BhCi_DxlSs6PAqMiczH8ww · +355 69 386 1838</div></div>
   <div class="row"><div class="k">V Zátiší — 17/09, 20h30 às 22h50</div><div class="v">Liliová 1, Praga 1 · 8 pessoas · vzatisi@zatisigroup.cz · +420 222 221 155</div></div>
   <div class="row"><div class="k">Kampa Park — 18/09, 14h às 16h30</div><div class="v">Ilha de Kampa, Praga · duas reservas de 4 · terraço à beira-rio · taxa de serviço de 12% para grupos de 8+</div></div>
   <div class="row"><div class="k">Portfolio Restaurant — 19/09, 20h</div><div class="v">Lannův palác, Havlíčkova 1030/1, Praga 1 · 8 pessoas · reserva nº 18646 · +420 607 003 878</div></div>
 </div>
 
 <div class="sec">
-  <h3>Hotéis</h3>
-  <div class="row"><div class="k">The Marmorosch Bucharest — 11 a 12/09</div><div class="v">Strada Doamnei 2-6, Old Town · check-in 15h · checkout 12h</div></div>
-  <div class="row"><div class="k">Buzë Boutique Hotel — 12 a 15/09</div><div class="v">Rruga Butrinti, Lagja 1, Saranda · +355 67 716 7830 · check-in 14h · checkout 11h</div></div>
-  <div class="row"><div class="k">Folie Marine Beach Hotel & Club — 15 a 16/09</div><div class="v">Rruga Jali Superior A, Jale · check-in 15h · checkout 11h30</div></div>
-  <div class="row"><div class="k">Arcadion Hotel — 16 a 17/09</div><div class="v">Vlassopoulou 2 / Kapodistriou 44, Liston, Corfu · +30 26610 37670 · check-in 15h · checkout 11h</div></div>
-  <div class="row"><div class="k">Century Old Town Prague — 17 a 20/09</div><div class="v">Na Poříčí 7, Praga 1 · check-in 15h · checkout 12h</div></div>
+  <h3>Beach clubs de Ksamil — 13/09</h3>
+  <div class="row"><div class="k">Ordem por nota e estrutura</div><div class="v">Ohana 4,7 · Abiori 4,5 · Africana 4,4 · Bianco 4,2 · GREG 4,2 · Foga · Rilinda 4,0 · Mango 3,9 · Principote 3,8 · Bora Bora 3,8 · Poda 3,7</div></div>
+  <div class="row"><div class="v">Por animação e música: Bianco, GREG e Africana sobem. Ohana é o melhor avaliado mas é praia de família. Bianco tem restaurante, piscina, rooftop e balada no mesmo lugar, aberto até as 5h.</div></div>
 </div>
 
 <div class="sec">
-  <h3>Voos e travessias</h3>
-  <div class="row"><div class="k">AF 415 · 10/09 · Fortaleza → Paris (CDG)</div><div class="v">19:55 → 09:35 (+1)</div></div>
-  <div class="row"><div class="k">AF 6634 · 11/09 · Paris → Bucareste (OTP)</div><div class="v">12:00 → 15:50</div></div>
-  <div class="row"><div class="k">FR 7564 · 12/09 · Bucareste → Corfu (CFU)</div><div class="v">12:00 → 13:35</div></div>
-  <div class="row"><div class="k">Ferry · 12/09 · Corfu → Saranda</div><div class="v">16:00 — último útil do dia, o seguinte é às 20:00</div></div>
-  <div class="row"><div class="k">Ferry · 16/09 · Saranda → Corfu</div><div class="v">Começo da tarde — horário e empresa a confirmar</div></div>
-  <div class="row"><div class="k">FR 1544 · 17/09 · Corfu → Praga (PRG)</div><div class="v">14:30 → 15:40</div></div>
-  <div class="row"><div class="k">AF 1583 · 20/09 · Praga → Paris (CDG)</div><div class="v">06:30 → 08:25</div></div>
-  <div class="row"><div class="k">AF 416 · 20/09 · Paris → Fortaleza</div><div class="v">13:25 → 17:45</div></div>
+  <h3>Seguro viagem</h3>
+  <div class="row"><div class="v">Cada um com a sua apólice. Levem o voucher salvo no celular e confiram o telefone de emergência da seguradora antes de embarcar.</div></div>
 </div>
 
 <div class="sec">
   <h3>Fusos</h3>
-  <div class="row"><div class="v">Romênia e Grécia estão 1h à frente de Albânia e Chéquia. O relógio volta uma hora ao chegar em Saranda (12/09), adianta ao voltar para Corfu (16/09) e volta de novo ao pousar em Praga (17/09). Todos os horários deste roteiro estão na hora local de cada lugar.</div></div>
+  <div class="row"><div class="v">Romênia e Grécia estão 1h à frente de Albânia e Chéquia. O relógio volta uma hora no ferry para Saranda (12/09), adianta na volta a Corfu (16/09) e volta de novo em Praga (17/09). Todos os horários deste roteiro estão na hora local de cada lugar.</div></div>
 </div>
 
 <div class="sec">
   <h3>Pendências</h3>
   <ol class="todo">
-    <li><b>Jantar de 18/09 em Praga</b> — o único da viagem sem reserva.</li>
+    <li><b>Beach club de Ksamil</b>, 13/09 — escolher e reservar espreguiçadeiras para 8.</li>
     <li><b>Anthos</b>, Corfu, 16/09 — mesa para 8.</li>
-    <li><b>Principote</b>, Ksamil, 13/09 — espreguiçadeiras e almoço para 8.</li>
     <li><b>Mare Nostrum</b>, Saranda, 14/09 — jantar para 8.</li>
-    <li><b>Jantar em Dhermi</b>, 15/09 — escolher entre Luciano e Azul by Havana e reservar.</li>
+    <li><b>Jantar de aniversário do Bruno</b>, Dhermi, 15/09 — escolher entre Luciano e Azul by Havana e avisar que é aniversário.</li>
+    <li><b>Jantar de 18/09 em Praga</b> — o único da viagem sem reserva.</li>
+    <li><b>Almoço em Gjirokastër</b>, 14/09 — Furra ou Taverna Kuka.</li>
     <li><b>Kampa Park</b> — pedir que as duas mesas de 4 fiquem juntas no terraço.</li>
     <li><b>Barco de 15/09</b> — confirmar com o operador a saída pela baía de Jale.</li>
-    <li><b>Ferry de 16/09</b> — comprar as passagens Saranda → Corfu.</li>
-    <li><b>Carros na Albânia</b> — dois carros, retirada em Saranda e devolução antes do ferry.</li>
   </ol>
 </div>
 
 <div class="sec">
-  <h3>O que falta para completar este guia</h3>
-  <ol class="todo">
-    <li>Locadora dos carros na Albânia: onde retirar, onde devolver e em que horário.</li>
-    <li>Empresa e horário do ferry de 16/09.</li>
-    <li>Nome e contato do operador do barco privado.</li>
-    <li>Se há transfer contratado do aeroporto de Bucareste ao hotel.</li>
-  </ol>
+  <h3>Agenda</h3>
+  <div class="row"><div class="k"><a href="./roteiro.ics" download>Baixar o roteiro para o calendário</a></div><div class="v">Arquivo .ics com os compromissos nos fusos de cada país. Importe no Google Calendar, Apple Agenda ou Outlook.</div></div>
 </div>
 
-<footer>Roteiro fechado em agosto de 2026 · 4 casais</footer>
+<footer>Roteiro do grupo · agosto de 2026 · 4 casais<br>Funciona offline depois da primeira abertura</footer>
 `;
 
 /* ---------- render ---------- */
@@ -413,6 +445,10 @@ document.addEventListener("keydown",e=>{
   if(e.key==="ArrowLeft") show(Math.max(0,cur-1));
 });
 show(0);
+
+if("serviceWorker" in navigator){
+  window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+}
 </script>
 </body>
 </html>

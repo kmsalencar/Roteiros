@@ -1,0 +1,17 @@
+{
+  "name": "Roteiro do grupo — Setembro 2026",
+  "short_name": "Roteiro",
+  "description": "Bucareste, Riviera Albanesa, Corfu e Praga — 10 a 20 de setembro de 2026.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#E9ECE6",
+  "theme_color": "#E9ECE6",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
